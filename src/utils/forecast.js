@@ -11,8 +11,10 @@ const forecast = (latitude,longitude ,callback) => {
       const temperature = response.body.currently.temperature;
       const precipitationProb = response.body.currently.precipProbability;
       const todaySummary = response.body.daily.data[0].summary;
+      const temperatureHigh = response.body.daily.data[0].temperatureHigh;
+      const temperatureLow = response.body.daily.data[0].temperatureLow;
       const place = response.body.timezone;
-      callback(undefined, 'In ' + place + ' ' + todaySummary + ' It is currently ' + temperature + ' degrees out. There is a ' + precipitationProb + '% chande of rain');
+      callback(undefined, 'In ' + place + ' ' + todaySummary + ' It is currently ' + temperature + ' degrees out. The high today is ' + temperatureHigh + ' with a low of' + temperatureLow + '. There is a ' + precipitationProb + '% chande of rain');
     }
   })
 }
