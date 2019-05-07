@@ -4,7 +4,7 @@ const path = require('path');
 const hbs = require('hbs');
 const location = require('../src/utils/location');
 const forecast = require('../src/utils/forecast');
-
+const port = process.env.PORT || 3000 ;
 const app = express();
 
 // Define paths for express config
@@ -80,6 +80,6 @@ app.get('*',(req,res)=> {
     message: 'Page not found 404'
   });
 })
-app.listen(3000, ()=> {
-  console.log('server running on port 3000')
+app.listen(port, ()=> {
+  console.log('server running on port ' + port)
 })
